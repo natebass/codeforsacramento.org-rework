@@ -1,0 +1,13 @@
+.container {
+  max-width: 100%;
+  padding-left: var(--space-2xl);
+  padding-right: var(--space-2xl);
+}
+
+@media screen and (--lg) {
+  .container {
+    width: 41.666667%;
+    margin-left: 20vw;
+    margin-right: auto;
+  }
+}

@@ -1,0 +1,58 @@
+@import "../themes/prism-one-light.css";
+
+/* Pre blocks */
+pre {
+  border-radius: 0.25rem;
+  margin-top: 0.25rem;
+  margin-bottom: 2rem;
+  margin-left: -1rem;
+  margin-right: -1rem;
+  padding: 1rem;
+  overflow-x: auto;
+}
+
+/* Inline code */
+/* WARNING Be careful, this can affect code inside pre blocks */
+code {
+  font-family: var(--mono-fontset);
+  margin-left: 0.25rem;
+  margin-right: 0.25rem;
+  padding: 0.25rem;
+  border-radius: 0.25rem;
+  font-size: var(--text-sm);
+  /* background-color: var(--pink-100); */
+  /* color: var(--pink-700); */
+  vertical-align: middle;
+}
+
+@media screen and (--dm) {
+  code {
+    /* background-color: var(--gray-900); */
+    /* color: var(--pink-300); */
+  }
+}
+
+/* Code inside pre blocks */
+pre > code[class*="language-"] {
+  font-family: var(--mono-fontset);
+  margin-bottom: 0;
+  padding-left: 0;
+  padding-right: 0;
+  font-size: var(--text-base);
+  background-color: inherit;
+  white-space: pre-wrap;
+  word-break: break-word;
+
+  & * {
+    color: inherit;
+  }
+}
+
+@media screen and (--dm) {
+  pre > code[class*="language-"] {
+    background-color: inherit;
+    & * {
+      color: inherit;
+    }
+  }
+}

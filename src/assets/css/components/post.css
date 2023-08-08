@@ -1,0 +1,40 @@
+article.post {
+  & .post-datetime,
+  & .post-tags {
+    margin-top: 0.25rem;
+    margin-bottom: 0.25rem;
+
+    & * {
+      font-size: var(--text-sm);
+    }
+  }
+
+  & .post-tags {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+
+  & > header,
+  & > main {
+    border-bottom: 1px dashed var(--gray-300);
+  }
+}
+
+@media screen and (--dm) {
+  article.post {
+    & > header,
+    & > main {
+      border-bottom: 1px dashed var(--gray-800);
+    }
+  }
+}
+
+@media screen and (--lg) {
+  .article {
+    & .post-tags {
+      align-items: center;
+    }
+  }
+}

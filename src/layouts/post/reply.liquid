@@ -1,0 +1,45 @@
+---
+layout: default
+permalink: "/post/reply/{{ page.date | date: '%Y' }}/{{ page.fileSlug }}/"
+---
+
+<article class="post h-entry" data-type="reply">
+    <header class="post-header">
+        <p class="post-datetime">
+            <a href="{{page.url}}" class="u-url u-uid"><time datetime="{{page.date | dateToIso8601}}" class="dt-published">{{ page.date | friendlyDate }}</time></a>
+            {% if updated %}
+                {% assign publishDate = page.date | friendlyDate %}
+                {% assign updateDate = updated | friendlyDate %}
+                {% unless publishDate == updateDate %}
+                    <span class=" text-italic">(last updated on <time class="dt-updated" datetime="{{ updated | dateToIso8601 }}">{{ updated | friendlyDate }}</time>)</span>
+                {% endunless %}
+            {% endif %}
+        </p>
+        {%- if tags.size > 0 -%}
+			<div class="post-tags">
+				<span>Tagged&nbsp;</span>
+				{% for tag in tags %}
+				{% assign tag_name = tag | slugify %}
+					<a href="{{ '/archive/tag/' | append: tag_name }}" class="p-category">#{{tag}}</a>
+				{% endfor %}
+			</div>
+		{%- endif -%}
+    </header>
+    <main>
+        <section class="p-name e-content">
+            {{ content }}
+        </section>
+        <p class="u-in-reply-to">In reply to <a href="{{ reply-to }}" class="u-url">{{ reply-to }}</a>.
+        </p>
+    </main>
+    <footer>
+        {% render 'comment-via-email', subject: "Comment on reply.", url: page.url %}
+
+        {% render 'author-card',
+            authors: site.authors,
+            slug: page.author,
+            hide: true,
+            post: true
+        %}
+    </footer>
+</article>

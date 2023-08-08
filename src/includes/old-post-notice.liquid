@@ -1,0 +1,9 @@
+{% capture isOldPost %}
+{% isOldPost date %}
+{% endcapture %}
+
+{% if isOldPost %}
+<section class="notice notice--warn">
+    <p>This post is over a year old! Information may be stale. Please read with caution.</p>
+</section>
+{% endif %}

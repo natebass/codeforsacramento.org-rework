@@ -1,0 +1,25 @@
+---
+layout: default
+pagination:
+    data: collections
+    size: 1
+    alias: tag
+    filter:
+      - primary
+      - all
+permalink: /archive/tag/{{ tag }}/
+content-description: Archive for tagged posts by  {% getOwnerInfo 'name' %}
+eleventyComputed:
+  title: "Archive of posts with tag '{{tag}}'"
+---
+<div>
+	{% include 'page-title' title:title %}
+	<main>
+		{% assign posts = collections.primary | byTag: tag %}
+		<ul class="unstyled-list">
+			{% for post in posts %}
+    			{% include 'post-card' post:post %}
+			{% endfor %}
+		</ul>
+	</main>
+</div>

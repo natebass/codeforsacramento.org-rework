@@ -1,0 +1,43 @@
+@charset "UTF-8";
+
+/* System */
+@import "./system/selectors.css";
+@import "./system/tokens.css";
+@import "./system/mq.css";
+
+/*
+** Remove this comment and the following imports to get a blank slate.
+*/
+@import "./modules/typography.css";
+@import "./modules/syntax.css";
+/* @import "./modules/atkinson-hyperlegible-font.css"; */
+@import "./modules/sticky-footer.css";
+
+/* Pre-built components in use. */
+@import "./components/notice.css";
+@import "./components/container.css";
+@import "./components/post.css";
+@import "./components/author-card.css";
+@import "./components/post-card.css";
+
+@media screen and (--dm) {
+  body {
+    background: var(--black);
+  }
+}
+
+/* Although the universal selector does not have a specificity of its own, source order comes into play and can affect your overrides. To prevent this situation, we tuck this in at the end, acting as a sane default when nothing is specified. */
+* {
+  font-size: var(--text-base);
+  color: var(--gray-800);
+  line-height: 1.625;
+  margin-inline: 0 initial;
+  margin-block: initial var(--space-lg);
+  padding-inline: 0;
+}
+
+@media screen and (--dm) {
+  * {
+    color: var(--gray-400);
+  }
+}

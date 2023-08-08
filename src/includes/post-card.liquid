@@ -1,0 +1,33 @@
+{% assign postLayout = post.data.layout %}
+{% capture postType %}
+{%- getPostType postLayout -%}
+{% endcapture %}
+
+
+<article
+    class="post-card h-entry"
+    data-type="{{ postType }}"
+>
+    <a class="u-url u-uid" href="{{ post.url }}">
+        <time
+            class="post-card__published-date dt-published"
+            datetime="{{ post.date | dateToIso8601 }}"
+        >
+            {{- post.date | friendlyDate -}}
+        </time>
+    </a>
+
+    {% if postType == "article" %}
+        {% include 'post-card-article' %}
+    {% elsif postType == "note" %}
+        {% include 'post-card-note' %}
+    {% elsif postType == "photo" %}
+        {% include 'post-card-photo' %}
+    {% elsif postType == "reply-context" %}
+        {% include 'post-card-reply-context' %}
+    {% elsif postType == "reply" %}
+        {% include 'post-card-reply' %}
+    {% endif %}
+
+</article>
+

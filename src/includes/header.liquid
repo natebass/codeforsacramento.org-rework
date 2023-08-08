@@ -1,0 +1,16 @@
+{% capture isHomePage %}{% if url == "/" %}true{% else %}false{% endif %}{% endcapture %}
+<header>
+    {% unless isHomePage == "true" %}
+    <div class="my-2">
+        <h1 class="text-xl lg:text-2xl mt-0 lg:mt-0">{{title}}</h1>
+        <p class="text-lg lg:text-xl mt-0 lg:mt-0">{{subtitle}}</p>
+    </div>
+    {% endunless %}
+
+    <nav>
+        {% assign lastItem = navigation | last %}
+        {% for item in navigation %}
+            <a href="{{ item.link }}">{{ item.title }}</a>
+        {% endfor %}
+    </nav>
+</header>
