@@ -19,7 +19,7 @@ module.exports = function(config) {
 		let metadata = await Image(src, {
 			widths: [600, null],
 			formats: ["avif", "webp", "jpeg"],
-			urlPath: "/assets/img/",
+			urlPath: "/_assets/img/",
 			outputDir: "./dist/assets/img/"
 		});
 		let highsrc = metadata.jpeg[metadata.jpeg.length - 1];
@@ -60,15 +60,15 @@ module.exports = function(config) {
 		rssPlugin.getNewestCollectionItemDate
 	);
 	config.addCollection("primary", collections.primary);
-	config.addPassthroughCopy({ "src/assets/font": "assets/font" });
+	config.addPassthroughCopy({ "_assets/font": "_assets/font" });
 	return {
 		pathPrefix: "/", // useful for GitHub pages
 		dir: {
 			input: "./",
 			output: "dist",
-			includes: "src/includes",
-			layouts: "src/layouts",
-			data: "src/data"
+			includes: "_includes",
+			layouts: "_layouts",
+			data: "_data"
 		}
 	};
 };

@@ -39,7 +39,7 @@ module.exports = {
 	 * @returns {any}
 	 */
 	getOwnerInfo: key => {
-		const { authors } = require(process.cwd() + "/src/data/site.json");
+		const { authors } = require(process.cwd() + "_data/site.json");
 		const owner = authors.filter(author =>
 			author.roles.includes("owner")
 		)[0];

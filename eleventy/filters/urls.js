@@ -1,5 +1,5 @@
 const { URL } = require("url");
-const config = require("../../src/data/config.js")();
+const config = require("../../_data/config.js")();
 
 module.exports = {
 	absoluteUrl: (url, base = config.siteBaseUrl) => {

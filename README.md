@@ -87,7 +87,7 @@ To allow for page-specific JavaScript files, we have a convenience command to pu
 npm run dev:jsb --in=portfolio.js --out=portfolio.js
 ```
 
-This will create a JS bunlde (hence `jsb`), entering at `src/assets/js/portfolio.js` and outputting at `dist/assets/js/portfolio.js`
+This will create a JS bunlde (hence `jsb`), entering at `_assets/js/portfolio.js` and outputting at `dist/assets/js/portfolio.js`
 
 Include them in the required page by using the `pageJavaScript` [`block`](https://liquidjs.com/tutorials/partials-and-layouts.html#Layout-Templates-Extends):
 
