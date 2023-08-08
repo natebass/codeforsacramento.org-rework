@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 
-{% include 'shared/head' %}
+{% include shared/head %}
 
-  {% include 'shared/header' %}
+  {% include shared/header %}
 
     <body>
 
@@ -11,14 +11,13 @@
 
         <div class="row">
           <div class="col-md-8 col-md-offset-2">
-            <h2>{{ page.title }}</h2>
             {{ content }}
           </div>
         </div>
 
       </div>
 
-      {% include 'shared/footer' %}
+      {% include shared/footer %}
 
     </body>
 
