@@ -1,9 +1,9 @@
 const utils = require("../utils");
-const env = require("../env");
+const env = process.env.ELEVENTY_RUN_MODE
 
 module.exports = {
-	liveItems: item => (env.is11tyProduction ? item.date <= new Date() : true),
-	publishedItems: item => (env.is11tyProduction ? !item.data.draft : true),
+	liveItems: item => (env === "build" ? item.date <= new Date() : true),
+	publishedItems: item => (env === "build" ? !item.data.draft : true),
 	sortByOrder: (a, b) =>
 		a.data.order === b.data.order
 			? 0

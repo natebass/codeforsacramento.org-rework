@@ -1,20 +1,18 @@
-var merge = require("lodash.merge");
+const merge = require("lodash.merge")
 
 module.exports = function() {
-	var src = {
+	const src = {
 		default: {},
 		development: {
 			siteBaseUrl: "http://localhost:8080"
 		},
 		production: {
-			siteBaseUrl: "https://smix.netlify.app"
+			siteBaseUrl: "https://natebass.github.io/codeforsacramento.org-rework"
 		}
-	};
-
-	var config = merge({}, src.default);
+	}
+	const config = merge({}, src.default);
 	process.env.NODE_ENV === "production"
 		? merge(config, src.production)
-		: merge(config, src.development);
-
+		: merge(config, src.development)
 	return config;
-};
+}
