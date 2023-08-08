@@ -19,8 +19,8 @@ module.exports = function(config) {
 		let metadata = await Image(src, {
 			widths: [600, null],
 			formats: ["avif", "webp", "jpeg"],
-			urlPath: "/_assets/img/",
-			outputDir: "./dist/assets/img/"
+			urlPath: "/_assets/images/",
+			outputDir: "./dist/assets/images/"
 		});
 		let highsrc = metadata.jpeg[metadata.jpeg.length - 1];
 		return `<picture>
